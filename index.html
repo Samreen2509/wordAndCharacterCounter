@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+    <style>
+        body,html{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+       .mainbody{
+        margin-top: 100px;
+        text-align: center;
+       }
+        h1{
+            height: 60px;
+            border: 1px solid black;
+            font-size: 2vw;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            background-color: aqua;
+            padding-top: 20px;
+        }
+        textarea{
+            width: 49.8%;
+        }
+        .spantag{
+            margin-top: 0;
+        }
+        @media (max-width:900px){
+            h1{
+            font-size: 5.3vw;
+            width: 90%;
+            height: 40px;
+        }
+        .mainbody{
+        margin-top: 50px;
+        }
+        textarea{
+            width: 88.8%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbody">
+        <h1>Words And Character counter</h1>
+        <textarea name="" id="text" cols="30" rows="10"></textarea><br>
+        <h1 class="spantag">
+            <span id="words">0</span> words and 
+        <span id="char">0</span> character
+        </h1>
+    </div>
+    <script>
+        let textbox=document.getElementById("text");
+        textbox.addEventListener('input',function(){
+            var text=this.value;
+            let char=document.getElementById("char").innerHTML=text.length;
+
+            text=text.trim();
+            let words=text.split(" ")
+            let removeblanckSpace=words.filter(function(elm)
+            {
+                return elm!="";
+            })
+
+            document.getElementById("words").innerHTML=removeblanckSpace.length;
+        })
+    </script>
+</body>
+</html>
